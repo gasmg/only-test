@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { Normalize } from "styled-normalize";
 import App from "./App";
+import { AuthProvider } from "./hoc/context/AuthContext";
+import "./index.css";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -10,6 +13,10 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<Normalize />
-		<App />
+		<BrowserRouter>
+			<AuthProvider>
+				<App />
+			</AuthProvider>
+		</BrowserRouter>
 	</React.StrictMode>
 );
